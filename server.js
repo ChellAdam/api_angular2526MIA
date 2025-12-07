@@ -1,4 +1,5 @@
 let express = require('express');
+require('dotenv').config();
 let app = express();
 let bodyParser = require('body-parser');
 let assignment = require('./routes/assignments');
@@ -8,7 +9,7 @@ mongoose.Promise = global.Promise;
 mongoose.set('debug', true);
 
 // remplacer toute cette chaine par l'URI de connexion à votre propre base dans le cloud s
-const uri = 'mongodb+srv://chellaliadampro_db_user:ClustAnguAD*@@cluster0.3llbqp4.mongodb.net/?appName=Cluster0';
+const uri = process.env.MONGODB_URI;
 
 const options = {
   useNewUrlParser: true,
